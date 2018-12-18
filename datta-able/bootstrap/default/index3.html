@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 
 
@@ -13,6 +13,22 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
     <!-- Meta -->
+	
+	
+	<style>
+	
+	iframe {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0 none;
+        box-sizing: border-box;
+    }
+	
+	</style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -38,6 +54,7 @@
 function uno()
 {
 var xmlhttp;
+var url_menu = [' files/logitechWeb/landingpage/index.html','maslulim.html'];
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -55,7 +72,7 @@ xmlhttp.onreadystatechange=function()
    }
   }
   
-   document.getElementById('iframe_test').src = ' files/logitechWeb/landingpage/index.html';
+   document.getElementById('iframe_test').src = url_menu[1];///    Elon: change the url from url array
 xmlhttp.open("POST","files/logitechWeb/landingpage/index.html", true);
 
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -481,28 +498,12 @@ xmlhttp.send("");
     <!-- [ chat message ] end -->
 
     <!-- [ Main Content ] start -->
-    <div class="pcoded-main-container">
-        <div class="pcoded-wrapper">
+	<div class="pcoded-wrapper">
             <div class="pcoded-content">
-                <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] start -->
+                   <iframe id="iframe_test" src="files/httpFiles/MiktzoaLahim.html"></iframe>
 
-                    <!-- [ breadcrumb ] end -->
-                    <div class="main-body">
-                        <div class="page-wrapper">
-                            <!-- [ Main Content ] start
-					
-                            <div class="row" id="maindiv">  </div> -->
-							<iframe id="iframe_test" src="files/httpFiles/MiktzoaLahim.html"></iframe>
-                          
-							
-                            <!-- [ Main Content ] end -->
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
     <!-- [ Main Content ] end -->
 
     <!-- Warning Section start -->
