@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from html.codedthemes.com/datta-able/bootstrap/default/ac_alert.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Dec 2018 16:28:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>סביבת מתגיסים - מסלולי לימוד</title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Datta Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+    <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template">
+    <meta name="author" content="Codedthemes" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	
+	 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="http://html.codedthemes.com/datta-able/bootstrap/assets/images/favicon.ico" type="image/x-icon">
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="../assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="../assets/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body >
+
+        <div class="btn-group mb-2 mr-2">
+        <button class="btn btn-secondary dropdown-toggle" aria-expanded="false" aria-haspopup="true" type="button" data-toggle="dropdown">בחר מסלול</button>
+        <div id="list" class="dropdown-menu" style="left: 0px; top: 0px; position: absolute; transform: translate3d(0px, 43px, 0px);" x-placement="bottom-start">
+        <a class="dropdown-item"   onclick='list("Cars")'>רכב</a>
+        <a class="dropdown-item" onclick='list("Electronic")'>אלקטרוניקה</a>
+        <a class="dropdown-item" onclick='list("Electricity")'>חשמל</a>
+        <a class="dropdown-item" onclick='list("Mechanic")'>מכונות</a>
+		<a class="dropdown-item" onclick='list("toon")'>תעשייה וניהול </a>
+		
+        </div>
+        </div>
+  hlpe
+  
+  <div id="table_location">
+
+	</div>
+  
+    <!-- Warning Section Ends -->
+
+    <!-- Required Js -->
+    <script src="../assets/js/vendor-all.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/pcoded.min.js"></script>
+   
+    
+   <script type="text/javascript">
+(function() {
+   var output = document.getElementById("data");
+    var config = {
+        apiKey: "AIzaSyCPxWcejZl7Uuho23J5aj3RkuOnAYY8adI",
+			authDomain: "teneapp-fe33d.firebaseapp.com",
+			databaseURL: "https://teneapp-fe33d.firebaseio.com",
+			projectId: "teneapp-fe33d",
+			storageBucket: "teneapp-fe33d.appspot.com",
+			messagingSenderId: "215621007831"
+    };
+    firebase.initializeApp(config);
+	
+})();
+
+
+
+function list(select){
+ document.getElementById('table_location').innerHTML = "";
+//var selected = document.getElementById("list").value;
+//var selected = document.getElement("list").value;
+document.getElementById('table_location').innerHTML = ('<table id="displayData" name="displayData"></table>');
+   
+console.log("the value  " + select);
+
+var database = firebase.database().ref('/m_cours_list/').child(select + '/' );
+database.once('value', function(snapshot){
+    if(snapshot.exists()){
+        var content = '';
+
+			snapshot.forEach(function(data){
+            var jobDesc = data.val().name;
+			var path = data.val().textPath;
+            content += '<tr>';
+            content += '<td><a href="'+ path +'">' + jobDesc + '</a></td>'; //column1
+            
+            content += '</tr>';
+        });
+
+        $('#displayData').append(content);
+    }
+});
+};
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+
+
+
+</script>
+        
+
+    <!-- sweet alert Js -->
+
+    <script src="../assets/js/pages/ac-alert.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+</body>
+
+<!-- Mirrored from html.codedthemes.com/datta-able/bootstrap/default/ac_alert.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Dec 2018 16:28:44 GMT -->
+</html>
